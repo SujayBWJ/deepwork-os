@@ -287,3 +287,82 @@ body {
   font-weight: 700;
   font-size: 48px;
 }
+
+.sections-row{
+  padding: 20px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.manage-habits{
+  text-decoration: none;
+  color: #6b7280;
+}
+
+.section-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 0;
+}
+
+.streak-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 8px;
+}
+
+.streak-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #d1fae5;
+  flex-shrink: 0;
+}
+
+.streak-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.progress-track {
+  background: #e5e7eb;
+  border-radius: 999px;
+  height: 6px;
+  width: 100%;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #111827;
+  width: 65%;
+}
+
+.streak-section{
+  width: 45%;
+}
+.journal-section{
+  width: 45%;
+}
+
+.streak-days{
+  flex-shrink: 0;
+  font-size: 13px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.progress-fill.green  { background: #059669; width: 40%; }
+.progress-fill.orange { background: #f97316; width: 18%; }
+.progress-fill.dark   { background: #111827; width: 90%; }
