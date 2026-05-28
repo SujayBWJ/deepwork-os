@@ -250,7 +250,7 @@ body {
 }
 
 .hero-right button {
-  border-radius: 12px;
+  border-radius: 10px;
   outline: none;
   background-color: #111827;
   color: white;
@@ -258,7 +258,16 @@ body {
   padding: 10px;
   white-space: nowrap;
   border: none;
+  cursor: pointer;
+  transition: 0.2s all ease;
 }
+.hero-right button:hover {
+  background: #1f2937;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.5px);
+  transition: all 0.2s ease;
+}
+
 .hero-right {
   flex-shrink: 0;
   display: flex;
