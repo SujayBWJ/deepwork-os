@@ -8,7 +8,7 @@ A productivity dashboard UI built from scratch with vanilla HTML, CSS, and JavaS
 
 ## Preview
 
-![DeepWork OS Dashboard](./preview.png)
+-- Coming soon --
 
 ---
 
