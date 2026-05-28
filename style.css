@@ -236,4 +236,54 @@ body {
 .dashboard {
   flex: 1;
   background: #f8faf9;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.hero-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: #e1e3e2;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.hero-right button {
+  border-radius: 12px;
+  outline: none;
+  background-color: #111827;
+  color: white;
+  font-weight: 400;
+  padding: 10px;
+  white-space: nowrap;
+  border: none;
+}
+.hero-right {
+  flex-shrink: 0;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-end ;
+}
+
+.badge {
+  background-color: #d1fae5;
+  color: #065f46;
+  border-radius: 30px;
+  padding: 10px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.hero-sub {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #6b7280;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+.hero-stat{
+  font-weight: 700;
+  font-size: 48px;
 }
