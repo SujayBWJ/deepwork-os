@@ -25,7 +25,7 @@
           </div>
           <span class="logo-text">DeepWork OS</span>
         </div>
-
+        
         <button class="new-entry-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19" />
@@ -33,7 +33,7 @@
           </svg>
           <span>New Entry</span>
         </button>
-
+        
         <div class="sidebar-menu">
           <div class="menu-item active">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -67,7 +67,7 @@
           </div>
         </div>
       </aside>
-
+      
       <div class="main-section">
         <nav class="navbar">
           <div class="nav-logo">DeepWork OS</div>
@@ -92,9 +92,9 @@
             </button>
           </div>
         </nav>
-
+        
         <main class="dashboard">
-
+          
           <div class="hero-card">
             <div class="hero-left">
               <div class="badge">Daily Pulse</div>
@@ -108,17 +108,17 @@
               <button class="resume-btn">Resume Focus</button>
             </div>
           </div>
-
+          
           <div class="sections-row">
-
+            
             <div class="streak-section">
               <div class="section-header">
                 <h2>Active Streaks</h2>
                 <a href="#" class="manage-habits">Manage Habits</a>
               </div>
-
+              
               <div class="streak-list">
-
+                
                 <div class="streak-item">
                   <div class="streak-icon"></div>
                   <div class="streak-middle">
@@ -129,7 +129,7 @@
                   </div>
                   <span class="streak-days">12 Days</span>
                 </div>
-
+                
                 <div class="streak-item">
                   <div class="streak-icon"></div>
                   <div class="streak-middle">
@@ -140,7 +140,7 @@
                   </div>
                   <span class="streak-days">5 Days</span>
                 </div>
-
+                
                 <div class="streak-item">
                   <div class="streak-icon"></div>
                   <div class="streak-middle">
@@ -156,7 +156,7 @@
             </div>
 
             <div class="journal-section">
-                <div class="section-header">
+              <div class="section-header">
                 <h2>Builder's Journal</h2>
                 <a href="#" class="manage-habits">View all logs</a>
               </div>
@@ -164,7 +164,7 @@
 
                 <div class="journal-entry">
                   <div class="journal-dot current"></div>
-                  <div class="journal-content">
+                  <div class="journal-content current">
                     <span class="journal-time">TODAY • 10:45 AM</span>
                     <h3 class="journal-title">Refactoring the core engine for better state isolation</h3>
                     <p class="journal-preview">Managed to decoupled the observer pattern from the UI layer. Cognitive load feels significantly lighter when reviewing the component tree now...</p>
@@ -201,5 +201,77 @@
         </main>
       </div>
     </div>
+
+<div class="modal-overlay">
+  <div class="modal-card">
+    <h2>What are you capturing?</h2>
+    <p>Select a format to preserve your flow state.</p>
+<div class="modal-options">
+
+  <div class="option-card">
+    <div class="modal-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#065f46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+    <polyline points="14 2 14 8 20 8"/>
+    <line x1="16" y1="13" x2="8" y2="13"/>
+    <line x1="16" y1="17" x2="8" y2="17"/>
+  </svg>
+
+
+    </div>
+    <div class="option-text">
+      <h3>Journal Entry</h3>
+      <p>Capture personal reflections, mood and daily observations.</p>
+    </div>
+  </div>
+
+  <div class="option-card">
+    <div class="modal-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#065f46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="16 18 22 12 16 6"/>
+    <polyline points="8 6 2 12 8 18"/>
+  </svg>
+
+
+    </div>
+    <div class="option-text">
+      <h3>Technical Log</h3>
+      <p>Document coding progress, architecture notes or bugs squashed.</p>
+    </div>
+  </div>
+
+  <div class="option-card">
+    <div class="modal-icon">
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#065f46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+  </svg>
+
+    </div>
+    <div class="option-text">
+      <h3>Vault Insight</h3>
+      <p>Save book highlights, mental models, or new connections.</p>
+    </div>
+  </div>
+
+</div>
+
+    <button class="modal-cancel">Cancel</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
   </body>
 </html>
