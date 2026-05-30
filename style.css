@@ -309,6 +309,11 @@ body {
 .manage-habits {
   text-decoration: none;
   color: #6b7280;
+  transition: 0.2s all ease;
+}
+
+.manage-habits:hover {
+  color: #065f46;
 }
 
 .section-header {
@@ -602,4 +607,89 @@ body {
 .option-text p {
   font-size: 13px;
   color: #6b7280;
+}
+
+.modal-overlay-2 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay-2.active {
+  display: flex;
+}
+
+.entry-title {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  color: #111827;
+}
+
+.entry-title:focus {
+  border-color: #059669;
+}
+
+.entry-body {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  color: #111827;
+  resize: none;
+  height: 140px;
+  line-height: 1.6;
+}
+
+.entry-body:focus {
+  border-color: #059669;
+}
+
+.entry-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.entry-cancel-btn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+.entry-cancel-btn:hover {
+  background: #f3f4f6;
+}
+
+.entry-submit-btn {
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease;
+}
+
+.entry-submit-btn:hover {
+  background: #3c475a;
 }
