@@ -1,4 +1,5 @@
 const menuItems = document.querySelectorAll(".menu-item");
+const timeline = document.querySelector(".journal-timeline");
 
 menuItems.forEach(function (item) {
   item.addEventListener("click", function () {
@@ -39,8 +40,6 @@ optionCards.forEach(function (card) {
 const entryCancelBtn = document.querySelector(".entry-cancel-btn");
 const entrySubmitBtn = document.querySelector(".entry-submit-btn");
 
-entrySubmitBtn.addEventListener("click", function () {});
-
 entryCancelBtn.addEventListener("click", function () {
   modalOverlay2.classList.remove("active");
 });
@@ -77,7 +76,6 @@ entrySubmitBtn.addEventListener("click", function () {
   titleInput.value = "";
   bodyInput.value = "";
 
-  const timeline = document.querySelector(".journal-timeline");
   const newEntry = document.createElement("div");
   const preview =
     entry.body.length > 100 ? entry.body.substring(0, 100) + "..." : entry.body;
@@ -92,6 +90,33 @@ entrySubmitBtn.addEventListener("click", function () {
                    </div>
                    `;
 
-timeline.appendChild(newEntry);
+  timeline.appendChild(newEntry);
 });
 
+function loadEntries() {
+  const entries = JSON.parse(localStorage.getItem("entries")) || [];
+
+  entries.forEach(function (entry) {
+    const newEntry = document.createElement("div");
+    const preview =
+      entry.body.length > 100
+        ? entry.body.substring(0, 100) + "..."
+        : entry.body;
+
+    newEntry.classList.add("journal-entry");
+    newEntry.innerHTML = `
+                    <div class="journal-dot"></div>
+                    <div class="journal-content">
+                    <span class="journal-time">${entry.time}</span>
+                    <h3 class="journal-title">${entry.title}</h3>
+                    <p class="journal-preview">${preview}</p>
+                   </div>
+                   `;
+
+    timeline.appendChild(newEntry);
+  });
+
+  console.log(entries);
+}
+
+loadEntries();
