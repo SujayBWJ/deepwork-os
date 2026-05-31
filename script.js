@@ -52,6 +52,7 @@ document.addEventListener("keydown", function (e) {
   if (e.key == "Escape") {
     modalOverlay.classList.remove("active");
     modalOverlay2.classList.remove("active");
+    modalOverlay3.classList.remove("active");
   }
 });
 
@@ -82,13 +83,13 @@ entrySubmitBtn.addEventListener("click", function () {
 
   newEntry.classList.add("journal-entry");
   newEntry.innerHTML = `
-                    <div class="journal-dot"></div>
-                    <div class="journal-content">
-                    <span class="journal-time">${entry.time}</span>
-                    <h3 class="journal-title">${entry.title}</h3>
-                    <p class="journal-preview">${preview}</p>
-                   </div>
-                   `;
+    <div class="journal-dot"></div>
+    <div class="journal-content">
+      <span class="journal-time">${entry.time}</span>
+      <h3 class="journal-title">${entry.title}</h3>
+      <p class="journal-preview">${preview}</p>
+    </div>
+  `;
 
   timeline.appendChild(newEntry);
 });
@@ -105,18 +106,58 @@ function loadEntries() {
 
     newEntry.classList.add("journal-entry");
     newEntry.innerHTML = `
-                    <div class="journal-dot"></div>
-                    <div class="journal-content">
-                    <span class="journal-time">${entry.time}</span>
-                    <h3 class="journal-title">${entry.title}</h3>
-                    <p class="journal-preview">${preview}</p>
-                   </div>
-                   `;
+      <div class="journal-dot"></div>
+      <div class="journal-content">
+        <span class="journal-time">${entry.time}</span>
+        <h3 class="journal-title">${entry.title}</h3>
+        <p class="journal-preview">${preview}</p>
+      </div>
+    `;
 
     timeline.appendChild(newEntry);
   });
-
-  console.log(entries);
 }
+
+const modalOverlay3 = document.querySelector(".modal-overlay-3");
+const logList = document.querySelector(".logs-list");
+const viewLogs = document.querySelector(".view-logs");
+
+function renderLogs() {
+  const entries = JSON.parse(localStorage.getItem("entries")) || [];
+  logList.innerHTML = "";
+
+  entries.forEach(function (entry, index) {
+    const row = document.createElement("div");
+    row.classList.add("log-row");
+    row.innerHTML = `
+      <span>${entry.title}</span>
+      <button class="delete-btn" data-index="${index}">Delete</button>
+    `;
+    logList.appendChild(row);
+
+    const deleteBtn = row.querySelector(".delete-btn");
+    deleteBtn.addEventListener("click", function () {
+      const i = parseInt(this.getAttribute("data-index"));
+      const entries = JSON.parse(localStorage.getItem("entries")) || [];
+      entries.splice(i, 1);
+      localStorage.setItem("entries", JSON.stringify(entries));
+      renderLogs();
+    });
+  });
+}
+
+viewLogs.addEventListener("click", function () {
+  modalOverlay3.classList.add("active");
+  renderLogs();
+});
+
+const cancelBtn3 = document.querySelector(".modal-cancel-3");
+cancelBtn3.addEventListener("click", function () {
+  modalOverlay3.classList.remove("active");
+});
+
+modalOverlay3.addEventListener("click", function (e) {
+  if (e.target == modalOverlay3) modalOverlay3.classList.remove("active");
+});
 
 loadEntries();
