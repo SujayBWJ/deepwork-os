@@ -1,5 +1,6 @@
+// ── Sidebar ──
+
 const menuItems = document.querySelectorAll(".menu-item");
-const timeline = document.querySelector(".journal-timeline");
 
 menuItems.forEach(function (item) {
   item.addEventListener("click", function () {
@@ -10,14 +11,15 @@ menuItems.forEach(function (item) {
   });
 });
 
+// ── New Entry Modal (Modal 1 — type selector) ──
+
 const newEntryBtn = document.querySelector(".new-entry-btn");
 const modalOverlay = document.querySelector(".modal-overlay");
+const cancelBtn = document.querySelector(".modal-cancel");
 
 newEntryBtn.addEventListener("click", function () {
   modalOverlay.classList.add("active");
 });
-
-const cancelBtn = document.querySelector(".modal-cancel");
 
 cancelBtn.addEventListener("click", function () {
   modalOverlay.classList.remove("active");
@@ -27,8 +29,15 @@ modalOverlay.addEventListener("click", function (e) {
   if (e.target == modalOverlay) modalOverlay.classList.remove("active");
 });
 
+// ── Entry Form Modal (Modal 2 — write entry) ──
+
 const optionCards = document.querySelectorAll(".option-card");
 const modalOverlay2 = document.querySelector(".modal-overlay-2");
+const entryCancelBtn = document.querySelector(".entry-cancel-btn");
+const entrySubmitBtn = document.querySelector(".entry-submit-btn");
+const titleInput = document.querySelector(".entry-title");
+const bodyInput = document.querySelector(".entry-body");
+const timeline = document.querySelector(".journal-timeline");
 
 optionCards.forEach(function (card) {
   card.addEventListener("click", function () {
@@ -37,9 +46,6 @@ optionCards.forEach(function (card) {
   });
 });
 
-const entryCancelBtn = document.querySelector(".entry-cancel-btn");
-const entrySubmitBtn = document.querySelector(".entry-submit-btn");
-
 entryCancelBtn.addEventListener("click", function () {
   modalOverlay2.classList.remove("active");
 });
@@ -47,17 +53,6 @@ entryCancelBtn.addEventListener("click", function () {
 modalOverlay2.addEventListener("click", function (e) {
   if (e.target == modalOverlay2) modalOverlay2.classList.remove("active");
 });
-
-document.addEventListener("keydown", function (e) {
-  if (e.key == "Escape") {
-    modalOverlay.classList.remove("active");
-    modalOverlay2.classList.remove("active");
-    modalOverlay3.classList.remove("active");
-  }
-});
-
-const titleInput = document.querySelector(".entry-title");
-const bodyInput = document.querySelector(".entry-body");
 
 entrySubmitBtn.addEventListener("click", function () {
   const title = titleInput.value;
@@ -94,6 +89,8 @@ entrySubmitBtn.addEventListener("click", function () {
   timeline.appendChild(newEntry);
 });
 
+// ── Journal Timeline — Load from localStorage ──
+
 function loadEntries() {
   const entries = JSON.parse(localStorage.getItem("entries")) || [];
 
@@ -118,9 +115,12 @@ function loadEntries() {
   });
 }
 
+// ── View All Logs Modal (Modal 3 — manage entries) ──
+
 const modalOverlay3 = document.querySelector(".modal-overlay-3");
 const logList = document.querySelector(".logs-list");
 const viewLogs = document.querySelector(".view-logs");
+const cancelBtn3 = document.querySelector(".modal-cancel-3");
 
 function renderLogs() {
   const entries = JSON.parse(localStorage.getItem("entries")) || [];
@@ -151,7 +151,6 @@ viewLogs.addEventListener("click", function () {
   renderLogs();
 });
 
-const cancelBtn3 = document.querySelector(".modal-cancel-3");
 cancelBtn3.addEventListener("click", function () {
   modalOverlay3.classList.remove("active");
 });
@@ -160,4 +159,96 @@ modalOverlay3.addEventListener("click", function (e) {
   if (e.target == modalOverlay3) modalOverlay3.classList.remove("active");
 });
 
+// Habit section
+
+const modalOverlay4 = document.querySelector(".modal-overlay-4");
+const manageHabit = document.querySelector(".manage-habits");
+const habitName = document.querySelector(".habit-name");
+const habitGoal = document.querySelector(".habit-goal");
+let selectedColor = "#059669";
+const streakList = document.querySelector(".streak-list");
+const colorOptions = document.querySelectorAll(".color-option");
+
+colorOptions.forEach(function (option) {
+  option.addEventListener("click", function () {
+    colorOptions.forEach(function (o) {
+      o.classList.remove("active");
+    });
+    option.classList.add("active");
+    selectedColor = option.style.background;
+  });
+});
+
+manageHabit.addEventListener("click", function () {
+  modalOverlay4.classList.add("active");
+});
+
+const saveHabit = document.querySelector(".habit-save-button");
+const cancelHabit = document.querySelector(".habit-cancel-btn");
+
+cancelHabit.addEventListener("click", function () {
+  modalOverlay4.classList.remove("active");
+});
+
+saveHabit.addEventListener("click", function () {
+  const name = habitName.value;
+  const goal = parseInt(habitGoal.value);
+
+  const habit = {
+    name: name,
+    goal: goal,
+    streak: 0,
+    color: selectedColor,
+  };
+
+  if (!name || !goal) return;
+
+  const habits = JSON.parse(localStorage.getItem("habits")) || [];
+  habits.push(habit);
+  localStorage.setItem("habits", JSON.stringify(habits));
+
+  modalOverlay4.classList.remove("active");
+  habitName.value = "";
+  habitGoal.value = "";
+
+  renderHabit(habit);
+});
+
+function renderHabit(habit) {
+  const width = Math.min((habit.streak / habit.goal) * 100, 100);
+  const item = document.createElement("div");
+
+  item.classList.add("streak-item");
+
+  item.innerHTML = `
+    
+    <div class="streak-icon"></div>
+    <div class="streak-middle">
+    <span class="streak-title">${habit.name}</span>
+    <div class="progress-track">
+    <div class="progress-fill" style= "background:${habit.color}; width: ${width}%"></div>
+    </div>
+    </div>
+    <span class="streak-days">${habit.streak} Days</span>
+    `;
+  streakList.appendChild(item);
+}
+
+function loadHabits() {
+  const habits = JSON.parse(localStorage.getItem("habits")) || [];
+  habits.forEach(function (habit) {
+    renderHabit(habit);
+  });
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key == "Escape") {
+    modalOverlay.classList.remove("active");
+    modalOverlay2.classList.remove("active");
+    modalOverlay3.classList.remove("active");
+    modalOverlay4.classList.remove("active");
+  }
+});
+
 loadEntries();
+loadHabits();

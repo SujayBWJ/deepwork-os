@@ -774,3 +774,85 @@ body {
   background: whitesmoke;
   border-radius: 30px;
 }
+
+.modal-overlay-4 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay-4.active {
+  display: flex;
+}
+
+.color-options {
+  display: flex;
+  gap: 12px;
+}
+
+.color-option {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: 0.2s all ease;
+}
+
+.color-option.active {
+  border: 3px solid #111827;
+  transform: scale(1.1);
+}
+
+.habit-name,
+.habit-goal {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  color: #111827;
+}
+
+.habit-name:focus,
+.habit-goal:focus {
+  border-color: #059669;
+}
+
+.habit-save-button {
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease;
+}
+
+.habit-save-button:hover {
+  background: #3c475a;
+}
+
+.habit-cancel-btn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+.habit-cancel-btn:hover {
+  background: #f3f4f6;
+}
