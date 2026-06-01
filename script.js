@@ -165,6 +165,7 @@ const modalOverlay4 = document.querySelector(".modal-overlay-4");
 const manageHabit = document.querySelector(".manage-habits");
 const habitName = document.querySelector(".habit-name");
 const habitGoal = document.querySelector(".habit-goal");
+const habitCheckbox = document.querySelector(".habit-checkbox");
 let selectedColor = "#059669";
 const streakList = document.querySelector(".streak-list");
 const colorOptions = document.querySelectorAll(".color-option");
@@ -230,8 +231,14 @@ function renderHabit(habit) {
     </div>
     </div>
     <span class="streak-days">${habit.streak} Days</span>
+    <input type="checkbox" class="habit-checkbox">
+
+    
     `;
   streakList.appendChild(item);
+  habitCheckbox.addEventListener('click', function(){
+    
+  })
 }
 
 function loadHabits() {
@@ -246,6 +253,27 @@ document.addEventListener("keydown", function (e) {
     modalOverlay.classList.remove("active");
     modalOverlay2.classList.remove("active");
     modalOverlay3.classList.remove("active");
+    modalOverlay4.classList.remove("active");
+  }
+});
+
+document.addEventListener("click", function (e) {
+  if (e.target == modalOverlay1) {
+    modalOverlay1.classList.remove("active");
+  }
+});
+document.addEventListener("click", function (e) {
+  if (e.target == modalOverlay2) {
+    modalOverlay2.classList.remove("active");
+  }
+});
+document.addEventListener("click", function (e) {
+  if (e.target == modalOverlay3) {
+    modalOverlay3.classList.remove("active");
+  }
+});
+document.addEventListener("click", function (e) {
+  if (e.target == modalOverlay4) {
     modalOverlay4.classList.remove("active");
   }
 });
