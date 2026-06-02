@@ -215,36 +215,45 @@ saveHabit.addEventListener("click", function () {
   renderHabit(habit);
 });
 
-function renderHabit(habit) {
+function renderHabit(habit, index) {
   const width = Math.min((habit.streak / habit.goal) * 100, 100);
   const item = document.createElement("div");
 
   item.classList.add("streak-item");
 
   item.innerHTML = `
-    
-    <div class="streak-icon"></div>
-    <div class="streak-middle">
-    <span class="streak-title">${habit.name}</span>
-    <div class="progress-track">
-    <div class="progress-fill" style= "background:${habit.color}; width: ${width}%"></div>
-    </div>
-    </div>
-    <span class="streak-days">${habit.streak} Days</span>
-    <input type="checkbox" class="habit-checkbox">
-
-    
-    `;
+  
+  <div class="streak-icon"></div>
+  <div class="streak-middle">
+  <span class="streak-title">${habit.name}</span>
+  <div class="progress-track">
+  <div class="progress-fill" style= "background:${habit.color}; width: ${width}%"></div>
+  </div>
+  </div>
+  <span class="streak-days">${habit.streak} Days</span>
+  <input type="checkbox" class="habit-checkbox" data-index="${index}">
+  
+  
+  `;
   streakList.appendChild(item);
-  habitCheckbox.addEventListener('click', function(){
-    
-  })
+
+  const checkBox = item.querySelector(".habit-checkbox");
+  checkBox.addEventListener("click", function () {
+    const habits = JSON.parse(localStorage.getItem("habits")) || [];
+    const i = parseInt(this.getAttribute("data-index"));
+    habits[i].streak++;
+    localStorage.setItem("habits", JSON.stringify(habits));
+
+    const newWidth = Math.min((habit.streak / habit.goal) * 100, 100);
+    item.querySelector(".progress-fill").style.width = newWidth + "%";
+    item.querySelector(".streak-days").textContent = habits[i].streak + " days";
+  });
 }
 
 function loadHabits() {
   const habits = JSON.parse(localStorage.getItem("habits")) || [];
-  habits.forEach(function (habit) {
-    renderHabit(habit);
+  habits.forEach(function (habit, index) {
+    renderHabit(habit, index);
   });
 }
 
