@@ -286,6 +286,6 @@ document.addEventListener("click", function (e) {
     modalOverlay4.classList.remove("active");
   }
 });
-
+ 
 loadEntries();
 loadHabits();
