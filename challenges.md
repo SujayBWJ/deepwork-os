@@ -89,6 +89,14 @@
 - **Fix:** Always call `appendChild` after setting `innerHTML`.
 
 ---
+## 3rd Juhe 2026 — DeepWork OS JS (Habit checkbox)
+
+**1. Habit checkbox not working properly; it increases the streak and updates the progress bar on every check and uncheck**
+- **Why:** Initially the event listener only checked if the box was clicked or not and updated it.
+- **Fix:** wrapped the function inside an if condition `if(checkbox.checked)`.
+
+
+
 
 ## Template for future entries
 

@@ -78,13 +78,13 @@ entrySubmitBtn.addEventListener("click", function () {
 
   newEntry.classList.add("journal-entry");
   newEntry.innerHTML = `
-    <div class="journal-dot"></div>
-    <div class="journal-content">
-      <span class="journal-time">${entry.time}</span>
-      <h3 class="journal-title">${entry.title}</h3>
-      <p class="journal-preview">${preview}</p>
-    </div>
-  `;
+      <div class="journal-dot"></div>
+      <div class="journal-content">
+        <span class="journal-time">${entry.time}</span>
+        <h3 class="journal-title">${entry.title}</h3>
+        <p class="journal-preview">${preview}</p>
+      </div>
+    `;
 
   timeline.appendChild(newEntry);
 });
@@ -103,13 +103,13 @@ function loadEntries() {
 
     newEntry.classList.add("journal-entry");
     newEntry.innerHTML = `
-      <div class="journal-dot"></div>
-      <div class="journal-content">
-        <span class="journal-time">${entry.time}</span>
-        <h3 class="journal-title">${entry.title}</h3>
-        <p class="journal-preview">${preview}</p>
-      </div>
-    `;
+        <div class="journal-dot"></div>
+        <div class="journal-content">
+          <span class="journal-time">${entry.time}</span>
+          <h3 class="journal-title">${entry.title}</h3>
+          <p class="journal-preview">${preview}</p>
+        </div>
+      `;
 
     timeline.appendChild(newEntry);
   });
@@ -130,9 +130,9 @@ function renderLogs() {
     const row = document.createElement("div");
     row.classList.add("log-row");
     row.innerHTML = `
-      <span>${entry.title}</span>
-      <button class="delete-btn" data-index="${index}">Delete</button>
-    `;
+        <span>${entry.title}</span>
+        <button class="delete-btn" data-index="${index}">Delete</button>
+      `;
     logList.appendChild(row);
 
     const deleteBtn = row.querySelector(".delete-btn");
@@ -222,31 +222,41 @@ function renderHabit(habit, index) {
   item.classList.add("streak-item");
 
   item.innerHTML = `
-  
-  <div class="streak-icon"></div>
-  <div class="streak-middle">
-  <span class="streak-title">${habit.name}</span>
-  <div class="progress-track">
-  <div class="progress-fill" style= "background:${habit.color}; width: ${width}%"></div>
-  </div>
-  </div>
-  <span class="streak-days">${habit.streak} Days</span>
-  <input type="checkbox" class="habit-checkbox" data-index="${index}">
-  
-  
-  `;
+    
+    <div class="streak-icon"></div>
+    <div class="streak-middle">
+    <span class="streak-title">${habit.name}</span>
+    <div class="progress-track">
+    <div class="progress-fill" style= "background:${habit.color}; width: ${width}%"></div>
+    </div>
+    </div>
+    <span class="streak-days">${habit.streak} Days</span>
+    <input type="checkbox" class="habit-checkbox" data-index="${index}">
+    
+    
+    `;
   streakList.appendChild(item);
 
   const checkBox = item.querySelector(".habit-checkbox");
   checkBox.addEventListener("click", function () {
-    const habits = JSON.parse(localStorage.getItem("habits")) || [];
-    const i = parseInt(this.getAttribute("data-index"));
-    habits[i].streak++;
-    localStorage.setItem("habits", JSON.stringify(habits));
+    if (checkBox.checked) {
+      const habits = JSON.parse(localStorage.getItem("habits")) || [];
+      const i = parseInt(this.getAttribute("data-index"));
+      habits[i].streak++;
+      
+      if (habits[i].streak >= habits[i].goal) {
+        habits.splice(i, 1);
+        localStorage.setItem("habits", JSON.stringify(habits));
 
-    const newWidth = Math.min((habit.streak / habit.goal) * 100, 100);
-    item.querySelector(".progress-fill").style.width = newWidth + "%";
-    item.querySelector(".streak-days").textContent = habits[i].streak + " days";
+        return;
+      }
+      localStorage.setItem("habits", JSON.stringify(habits));
+
+      const newWidth = Math.min((habit.streak / habit.goal) * 100, 100);
+      item.querySelector(".progress-fill").style.width = newWidth + "%";
+      item.querySelector(".streak-days").textContent =
+        habits[i].streak + " days";
+    }
   });
 }
 
@@ -286,6 +296,6 @@ document.addEventListener("click", function (e) {
     modalOverlay4.classList.remove("active");
   }
 });
- 
+
 loadEntries();
 loadHabits();
