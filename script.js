@@ -243,7 +243,12 @@ function renderHabit(habit, index) {
       const habits = JSON.parse(localStorage.getItem("habits")) || [];
       const i = parseInt(this.getAttribute("data-index"));
       habits[i].streak++;
-      
+
+      const newWidth = Math.min((habits[i].streak / habits[i].goal) * 100, 100);
+      item.querySelector(".progress-fill").style.width = newWidth + "%";
+      item.querySelector(".streak-days").textContent =
+        habits[i].streak + " days";
+
       if (habits[i].streak >= habits[i].goal) {
         habits.splice(i, 1);
         localStorage.setItem("habits", JSON.stringify(habits));
@@ -251,11 +256,6 @@ function renderHabit(habit, index) {
         return;
       }
       localStorage.setItem("habits", JSON.stringify(habits));
-
-      const newWidth = Math.min((habit.streak / habit.goal) * 100, 100);
-      item.querySelector(".progress-fill").style.width = newWidth + "%";
-      item.querySelector(".streak-days").textContent =
-        habits[i].streak + " days";
     }
   });
 }
@@ -277,8 +277,8 @@ document.addEventListener("keydown", function (e) {
 });
 
 document.addEventListener("click", function (e) {
-  if (e.target == modalOverlay1) {
-    modalOverlay1.classList.remove("active");
+  if (e.target == modalOverlay) {
+    modalOverlay.classList.remove("active");
   }
 });
 document.addEventListener("click", function (e) {
