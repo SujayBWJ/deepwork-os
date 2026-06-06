@@ -297,5 +297,31 @@ document.addEventListener("click", function (e) {
   }
 });
 
+
+// Block of code used for changing tabs on click
+const dashboard = document.querySelector('.dashboard');
+const focusPage = document.querySelector('.focus');
+
+menuItems.forEach(function(item){
+  item.addEventListener('click', function(){
+    menuItems.forEach(function(i){
+      i.classList.remove('active')
+    });
+    item.classList.add('active');
+
+
+    const label = item.querySelector('span').textContent;
+
+    if(label === 'Focus Mode'){
+      dashboard.style.display = 'none';
+      focusPage.style.display = 'flex';
+    }
+    else{
+      dashboard.style.display = 'block';
+      focusPage.style.display = 'none';
+    }
+  });
+});
+
 loadEntries();
 loadHabits();

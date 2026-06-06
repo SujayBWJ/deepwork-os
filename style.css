@@ -856,3 +856,171 @@ body {
 .habit-cancel-btn:hover {
   background: #f3f4f6;
 }
+
+/* Focus Page CSS */
+
+.focus {
+  display: flex;
+  flex: 1;
+  background: #f0f7f4;
+  overflow: hidden;
+}
+
+.focus-main {
+  width: 70%;
+  height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f7f4;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 60px;
+}
+
+.focus-timer {
+  width: 480px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #5b7f6c;
+  gap: 8px;
+  position: relative;
+}
+
+.timer-display {
+  display: flex;
+  font-size: 110px;
+  color: #111827;
+  font-weight: 700;
+}
+
+.timer-label {
+  color: #000;
+  font-weight: 300;
+}
+
+.focus-queue {
+  width: 30%;
+  background: white;
+  border-left: 1px solid #e5e7eb;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.focus-end-session-btn {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #111827;
+  transition: 0.2s all ease;
+}
+
+.focus-end-session-btn:hover {
+  background: #f3f4f6;
+}
+
+.focus-sounds-btn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.focus-main-footer {
+  position: absolute;
+  bottom: 24px;
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.current-task-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #6b7280;
+  margin-top: 32px;
+}
+
+.current-task-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.session-streak {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.streak-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e5e7eb;
+}
+
+.streak-dot.completed {
+  background: #059669;
+}
+
+.queue-heading {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #9ca3af;
+}
+
+.queue-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.queue-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #059669;
+}
+
+.queue-task-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.queue-duration {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.add-to-queue-btn {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #374151;
+  margin-top: auto;
+  transition: 0.2s all ease;
+}
+
+.add-to-queue-btn:hover {
+  background: #f3f4f6;
+}
