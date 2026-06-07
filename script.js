@@ -297,31 +297,61 @@ document.addEventListener("click", function (e) {
   }
 });
 
-
 // Block of code used for changing tabs on click
-const dashboard = document.querySelector('.dashboard');
-const focusPage = document.querySelector('.focus');
+const dashboard = document.querySelector(".dashboard");
+const focusPage = document.querySelector(".focus");
 
-menuItems.forEach(function(item){
-  item.addEventListener('click', function(){
-    menuItems.forEach(function(i){
-      i.classList.remove('active')
+menuItems.forEach(function (item) {
+  item.addEventListener("click", function () {
+    menuItems.forEach(function (i) {
+      i.classList.remove("active");
     });
-    item.classList.add('active');
+    item.classList.add("active");
 
+    const label = item.querySelector("span").textContent;
 
-    const label = item.querySelector('span').textContent;
-
-    if(label === 'Focus Mode'){
-      dashboard.style.display = 'none';
-      focusPage.style.display = 'flex';
-    }
-    else{
-      dashboard.style.display = 'block';
-      focusPage.style.display = 'none';
+    if (label === "Focus Mode") {
+      dashboard.style.display = "none";
+      focusPage.style.display = "flex";
+    } else {
+      dashboard.style.display = "block";
+      focusPage.style.display = "none";
     }
   });
 });
+
+const focusTimer = document.querySelector(".focus-timer");
+let totalSeconds = 25 * 60;
+let timerInterval = null;
+let isRunning = false;
+
+focusTimer.addEventListener("click", function () {
+  focusTimer.classList.add('clicked');
+  if (isRunning) {
+    clearInterval(timerInterval);
+    isRunning = false;
+  } else {
+    function tick(){
+      totalSeconds--;
+      let minutes = Math.floor(totalSeconds / 60);
+      let seconds = totalSeconds % 60;
+      let display = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+      document.querySelector(".timer-display").textContent = display;
+      if (totalSeconds <= 0) {
+        clearInterval(timerInterval);
+        isRunning = false;
+      }
+    }
+    
+    focusTimer.classList.remove('clicked');
+    tick();
+    timerInterval = setInterval(tick, 1000);
+    isRunning = true;
+  }
+});
+
+const endSession = document.querySelector('.focus-end-session-btn');
+
 
 loadEntries();
 loadHabits();

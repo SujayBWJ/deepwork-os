@@ -889,6 +889,16 @@ body {
   border: 2px solid #5b7f6c;
   gap: 8px;
   position: relative;
+  cursor: pointer;
+  transition:  0.2s all ease;
+}
+
+.clicked{
+  background-color: rgba(6,95,70,0.8);
+  .timer-label, .timer-display{
+    color: white;
+  }
+  transform: scale(0.96);
 }
 
 .timer-display {
@@ -896,6 +906,7 @@ body {
   font-size: 110px;
   color: #111827;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .timer-label {
