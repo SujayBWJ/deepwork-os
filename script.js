@@ -310,6 +310,8 @@ menuItems.forEach(function (item) {
 
     const label = item.querySelector("span").textContent;
 
+    localStorage.setItem("activePage", label);
+
     if (label === "Focus Mode") {
       dashboard.style.display = "none";
       focusPage.style.display = "flex";
@@ -320,38 +322,141 @@ menuItems.forEach(function (item) {
   });
 });
 
+// Focus Page JS
 const focusTimer = document.querySelector(".focus-timer");
 let totalSeconds = 25 * 60;
 let timerInterval = null;
 let isRunning = false;
+let minutes = 0;
+let seconds = 0;
+
+const endSession = document.querySelector(".focus-end-session-btn");
+endSession.addEventListener("click", function () {
+  clearInterval(timerInterval);
+  isRunning = false;
+
+  totalSeconds = 25 * 60;
+
+  minutes = Math.floor(totalSeconds / 60);
+  seconds = totalSeconds % 60;
+  let display = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+  document.querySelector(".timer-display").textContent = display;
+});
+
+function tick() {
+  totalSeconds--;
+  minutes = Math.floor(totalSeconds / 60);
+  seconds = totalSeconds % 60;
+  let display = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+  document.querySelector(".timer-display").textContent = display;
+  if (totalSeconds <= 0) {
+    clearInterval(timerInterval);
+    isRunning = false;
+  }
+}
 
 focusTimer.addEventListener("click", function () {
-  focusTimer.classList.add('clicked');
+  focusTimer.classList.add("clicked");
   if (isRunning) {
     clearInterval(timerInterval);
     isRunning = false;
   } else {
-    function tick(){
-      totalSeconds--;
-      let minutes = Math.floor(totalSeconds / 60);
-      let seconds = totalSeconds % 60;
-      let display = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
-      document.querySelector(".timer-display").textContent = display;
-      if (totalSeconds <= 0) {
-        clearInterval(timerInterval);
-        isRunning = false;
-      }
-    }
-    
-    focusTimer.classList.remove('clicked');
+    focusTimer.classList.remove("clicked");
     tick();
     timerInterval = setInterval(tick, 1000);
     isRunning = true;
   }
 });
 
-const endSession = document.querySelector('.focus-end-session-btn');
+const modalOverlay5 = document.querySelector(".modal-overlay-5");
+const addQueueBtn = document.querySelector(".add-to-queue-btn");
+const taskInput = document.querySelector(".task-name");
+const taskDuration = document.querySelector(".task-duration");
+const queueList = document.querySelector(".queue-list");
+const addTaskBtn = document.querySelector(".task-submit-btn");
 
+addQueueBtn.addEventListener("click", function () {
+  modalOverlay5.classList.add("active");
+});
+
+modalOverlay5.addEventListener("click", function (e) {
+  if (e.target == modalOverlay5) modalOverlay5.classList.remove("active");
+});
+
+addTaskBtn.addEventListener("click", function () {
+  const taskName = taskInput.value;
+  const duration = taskDuration.value;
+
+  const task = {
+    taskName: taskName,
+    duration: duration,
+  };
+
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.push(task);
+  localStorage.setItem("entries", JSON.stringify(tasks));
+
+  modalOverlay5.classList.remove("active");
+  taskInput.value = "";
+  taskDuration.value = "";
+
+  const newTask = document.createElement("div");
+
+  newTask.classList.add("task-entry");
+  newTask.innerHTML = `
+     
+  <div class="queue-item">
+                <span class="queue-tag">NEXT UP</span>
+                <p class="queue-task-name">
+                  ${task.taskName}
+                </p>
+                <span class="queue-duration">${task.duration} MINS</span>
+              </div>
+    `;
+
+  queueList.appendChild(newTask);
+});
+
+function loadTasks() {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  tasks.forEach(function (task) {
+    const newTask = document.createElement("div");
+
+    newTask.classList.add("task-entry");
+    newTask.innerHTML = `
+     
+  <div class="queue-item">
+                <span class="queue-tag">NEXT UP</span>
+                <p class="queue-task-name">
+                  ${task.taskName}
+                </p>
+                <span class="queue-duration">${task.duration} MINS</span>
+              </div>
+    `;
+
+    queueList.appendChild(newTask);
+  });
+}
+
+function restorePage() {
+  const activePage = localStorage.getItem("activePage");
+
+  if (activePage === "Focus Mode") {
+    dashboard.style.display = "none";
+    focusPage.style.display = "flex";
+
+    menuItems.forEach(function (item) {
+      item.classList.remove("active");
+
+      if (item.querySelector("span").textContent === "Focus Mode") {
+        item.classList.add("active");
+      }
+    });
+  }
+}
 
 loadEntries();
 loadHabits();
+loadTasks();
+restorePage();
