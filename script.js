@@ -380,7 +380,10 @@ addQueueBtn.addEventListener("click", function () {
 });
 
 modalOverlay5.addEventListener("click", function (e) {
-  if (e.target == modalOverlay5) modalOverlay5.classList.remove("active");
+  if (e.target == modalOverlay5) {
+    modalOverlay5.classList.remove("active");
+    nullEntry.textContent = "";
+  }
 });
 
 addTaskBtn.addEventListener("click", function () {
@@ -469,7 +472,7 @@ function restorePage() {
 function validate(input1, input2){
   console.log('validator called');
   
-  if(input1 == "" || input2 == "")
+  if(input1 === "" || input2 === "")
   {
     nullEntry.textContent = "Please fill all the fields";
     return false;
