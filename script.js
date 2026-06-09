@@ -374,6 +374,11 @@ const taskInput = document.querySelector(".task-name");
 const taskDuration = document.querySelector(".task-duration");
 const queueList = document.querySelector(".queue-list");
 const addTaskBtn = document.querySelector(".task-submit-btn");
+const resumeFocusBtn = document.querySelector('.resume-btn');
+
+resumeFocusBtn.addEventListener('click', function(){
+  showFocusPage();
+})
 
 addQueueBtn.addEventListener("click", function () {
   modalOverlay5.classList.add("active");
@@ -479,6 +484,22 @@ function validate(input1, input2){
   }
   nullEntry.textContent = "";
   return true;
+}
+
+
+  function showFocusPage() {
+  dashboard.style.display = "none";
+  focusPage.style.display = "flex";
+
+  localStorage.setItem("activePage", "Focus Mode");
+
+  menuItems.forEach(function (item) {
+    item.classList.remove("active");
+
+    if (item.querySelector("span").textContent === "Focus Mode") {
+      item.classList.add("active");
+    }
+  });
 }
 
 loadEntries();
