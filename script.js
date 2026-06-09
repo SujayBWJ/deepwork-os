@@ -38,7 +38,7 @@ const entrySubmitBtn = document.querySelector(".entry-submit-btn");
 const titleInput = document.querySelector(".entry-title");
 const bodyInput = document.querySelector(".entry-body");
 const timeline = document.querySelector(".journal-timeline");
-
+const nullEntry = document.querySelector('.null-entry-error');
 optionCards.forEach(function (card) {
   card.addEventListener("click", function () {
     modalOverlay.classList.remove("active");
@@ -392,9 +392,19 @@ addTaskBtn.addEventListener("click", function () {
     duration: duration,
   };
 
+  // if(taskName == "" || duration === ""){
+  //   alert("Fill all the fields!");
+  //   return;
+  // }
+
+if(!validate(taskName,duration)) return;
+
+
+
+
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.push(task);
-  localStorage.setItem("entries", JSON.stringify(tasks));
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 
   modalOverlay5.classList.remove("active");
   taskInput.value = "";
@@ -454,6 +464,18 @@ function restorePage() {
       }
     });
   }
+}
+
+function validate(input1, input2){
+  console.log('validator called');
+  
+  if(input1 == "" || input2 == "")
+  {
+    nullEntry.textContent = "Please fill all the fields";
+    return false;
+  }
+  nullEntry.textContent = "";
+  return true;
 }
 
 loadEntries();
