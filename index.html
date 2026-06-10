@@ -1,164 +1,64 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DeepWork OS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="app">
-      <aside class="sidebar">
-        <div class="sidebar-logo">
-          <div class="logo-icon">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
-            </svg>
-          </div>
-          <span class="logo-text">DeepWork OS</span>
-        </div>
-
-        <button class="new-entry-btn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="12" y1="5" x2="12" y2="19" />
-            <line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
-          <span>New Entry</span>
-        </button>
-
-        <div class="sidebar-menu">
-          <div class="menu-item active">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              />
-            </svg>
-            <span>The Pulse</span>
-          </div>
-          <div class="menu-item">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span>Focus Mode</span>
-          </div>
-          <div class="menu-item">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-              />
-              <polyline points="14 2 14 8 20 8" />
-              <line x1="16" y1="13" x2="8" y2="13" />
-              <line x1="16" y1="17" x2="8" y2="17" />
-              <polyline points="10 9 9 9 8 9" />
-            </svg>
-            <span>Builder's Journal</span>
-          </div>
-          <div class="menu-item">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-              <path
-                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
-              />
-            </svg>
-            <span>Knowledge Vault</span>
-          </div>
-        </div>
-      </aside>
-
-      <div class="main-section">
-        <nav class="navbar">
-          <div class="nav-logo">DeepWork OS</div>
-          <div class="nav-actions">
-            <div class="search-box">
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>DeepWork OS</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+      />
+      <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+      <div class="app">
+        <aside class="sidebar">
+          <div class="sidebar-logo">
+            <div class="logo-icon">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#9ca3af"
-                stroke-width="2"
+                stroke="white"
+                stroke-width="2.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
               </svg>
-              <input type="text" placeholder="Search knowledge..." />
             </div>
-            <button class="icon-btn">
+            <span class="logo-text">DeepWork OS</span>
+          </div>
+
+          <button class="new-entry-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            <span>New Entry</span>
+          </button>
+
+          <div class="sidebar-menu">
+            <div class="menu-item active">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -167,15 +67,16 @@
                 stroke-linejoin="round"
               >
                 <path
-                  d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5A7 7 0 1 1 5 15c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5Z"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                 />
               </svg>
-            </button>
-            <button class="icon-btn">
+              <span>The Pulse</span>
+            </div>
+            <div class="menu-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -183,136 +84,19 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <circle cx="12" cy="8" r="5" />
-                <path d="M20 21a8 8 0 0 0-16 0" />
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
               </svg>
-            </button>
-          </div>
-        </nav>
-
-        <main class="dashboard">
-          <div class="hero-card">
-            <div class="hero-left">
-              <div class="badge">Daily Pulse</div>
-              <h1 class="hero-stat"></h1>
-              <p class="hero-sub">
-                You've reached your flow state baseline today. Keep the momentum
-                going for another 90 minutes to hit your peak productivity
-                window.
-              </p>
+              <span>Focus Mode</span>
             </div>
-            <div class="hero-right">
-              <button class="resume-btn" >Resume Focus</button>
-            </div>
-          </div>
-
-          <div class="sections-row">
-            <div class="streak-section">
-              <div class="section-header">
-                <h2>Active Streaks</h2>
-                <a href="#" class="manage-habits">Manage Habits</a>
-              </div>
-
-              <div class="streak-list">
-                <!-- <div class="streak-item">
-                  <div class="streak-icon"></div>
-                  <div class="streak-middle">
-                    <span class="streak-title">Morning Mindfulness</span>
-                    <div class="progress-track">
-                      <div class="progress-fill green"></div>
-                    </div>
-                  </div>
-                  <span class="streak-days">12 Days</span>
-                  <input type="checkbox" class="habit-checkbox">
-                </div>
-                
-                <div class="streak-item">
-                  <div class="streak-icon"></div>
-                  <div class="streak-middle">
-                    <span class="streak-title">System Architecture</span>
-                    <div class="progress-track">
-                      <div class="progress-fill orange"></div>
-                    </div>
-                  </div>
-                  <span class="streak-days">5 Days</span>
-                  <input type="checkbox" class="habit-checkbox">
-                </div>
-                
-                <div class="streak-item">
-                  <div class="streak-icon"></div>
-                  <div class="streak-middle">
-                    <span class="streak-title">Curated Reading</span>
-                    <div class="progress-track">
-                      <div class="progress-fill dark"></div>
-                    </div>
-                  </div>
-                  <span class="streak-days">28 Days</span>
-                  <input type="checkbox" class="habit-checkbox">
-                </div> -->
-              </div>
-            </div>
-
-            <div class="journal-section">
-              <div class="section-header">
-                <h2>Builder's Journal</h2>
-                <a href="#" class="view-logs">View all logs</a>
-              </div>
-              <div class="journal-timeline"></div>
-            </div>
-          </div>
-        </main>
-
-        <main class="focus" style="display: none">
-          <div class="focus-main">
-            <div class="focus-timer">
-              <span class="timer-display">25:00</span>
-              <span class="timer-label">FOCUS PERIOD</span>
-            </div>
-            <p class="current-task-label">CURRENT TASK</p>
-            <h3 class="current-task-text">Refactoring Auth Module</h3>
-            <button class="focus-end-session-btn">End Session</button>
-            <div class="focus-main-footer">
-              <div class="session-streak">
-                <span class="streak-dot completed"></span>
-                <span class="streak-dot completed"></span>
-                <span class="streak-dot"></span>
-                <span class="streak-dot"></span>
-              </div>
-              <button class="focus-sounds-btn">Nature Sounds Active</button>
-            </div>
-          </div>
-
-          <div class="focus-queue">
-            <h3 class="queue-heading">QUEUE</h3>
-            <div class="queue-list">
-              <div class="queue-item">
-                <!-- <span class="queue-tag">NEXT UP</span> -->
-                <!-- <p class="queue-task-name">
-                  Prepare API Documentation for Team Sync
-                </p>
-                <span class="queue-duration">15 MINS</span> -->
-              </div>
-            </div>
-            <button class="add-to-queue-btn">Add to Queue +</button>
-          </div>
-        </main>
-      </div>
-    </div>
-
-    <div class="modal-overlay">
-      <div class="modal-card">
-        <h2>What are you capturing?</h2>
-        <p>Select a format to preserve your flow state.</p>
-        <div class="modal-options">
-          <div class="option-card">
-            <div class="modal-icon">
+            <div class="menu-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
                 height="18"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#065f46"
+                stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -323,48 +107,18 @@
                 <polyline points="14 2 14 8 20 8" />
                 <line x1="16" y1="13" x2="8" y2="13" />
                 <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
               </svg>
+              <span>Builder's Journal</span>
             </div>
-            <div class="option-text">
-              <h3>Journal Entry</h3>
-              <p>Capture personal reflections, mood and daily observations.</p>
-            </div>
-          </div>
-
-          <div class="option-card">
-            <div class="modal-icon">
+            <div class="menu-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
                 height="18"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#065f46"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
-            </div>
-            <div class="option-text">
-              <h3>Technical Log</h3>
-              <p>
-                Document coding progress, architecture notes or bugs squashed.
-              </p>
-            </div>
-          </div>
-
-          <div class="option-card">
-            <div class="modal-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#065f46"
+                stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -374,82 +128,329 @@
                   d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
                 />
               </svg>
-            </div>
-            <div class="option-text">
-              <h3>Vault Insight</h3>
-              <p>Save book highlights, mental models, or new connections.</p>
+              <span>Knowledge Vault</span>
             </div>
           </div>
+        </aside>
+
+        <div class="main-section">
+          <nav class="navbar">
+            <div class="nav-logo">DeepWork OS</div>
+            <div class="nav-actions">
+              <div class="search-box">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#9ca3af"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+                <input type="text" placeholder="Search knowledge..." />
+              </div>
+              <button class="icon-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5A7 7 0 1 1 5 15c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5Z"
+                  />
+                </svg>
+              </button>
+              <button class="icon-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="8" r="5" />
+                  <path d="M20 21a8 8 0 0 0-16 0" />
+                </svg>
+              </button>
+            </div>
+          </nav>
+
+          <main class="dashboard">
+            <div class="hero-card">
+              <div class="hero-left">
+                <div class="badge">Daily Pulse</div>
+                <h1 class="hero-stat"></h1>
+                <p class="hero-sub">
+                  You've reached your flow state baseline today. Keep the momentum
+                  going for another 90 minutes to hit your peak productivity
+                  window.
+                </p>
+              </div>
+              <div class="hero-right">
+                <button class="resume-btn" >Resume Focus</button>
+              </div>
+            </div>
+
+            <div class="sections-row">
+              <div class="streak-section">
+                <div class="section-header">
+                  <h2>Active Streaks</h2>
+                  <a href="#" class="manage-habits">Manage Habits</a>
+                </div>
+
+                <div class="streak-list">
+                  <!-- <div class="streak-item">
+                    <div class="streak-icon"></div>
+                    <div class="streak-middle">
+                      <span class="streak-title">Morning Mindfulness</span>
+                      <div class="progress-track">
+                        <div class="progress-fill green"></div>
+                      </div>
+                    </div>
+                    <span class="streak-days">12 Days</span>
+                    <input type="checkbox" class="habit-checkbox">
+                  </div>
+                  
+                  <div class="streak-item">
+                    <div class="streak-icon"></div>
+                    <div class="streak-middle">
+                      <span class="streak-title">System Architecture</span>
+                      <div class="progress-track">
+                        <div class="progress-fill orange"></div>
+                      </div>
+                    </div>
+                    <span class="streak-days">5 Days</span>
+                    <input type="checkbox" class="habit-checkbox">
+                  </div>
+                  
+                  <div class="streak-item">
+                    <div class="streak-icon"></div>
+                    <div class="streak-middle">
+                      <span class="streak-title">Curated Reading</span>
+                      <div class="progress-track">
+                        <div class="progress-fill dark"></div>
+                      </div>
+                    </div>
+                    <span class="streak-days">28 Days</span>
+                    <input type="checkbox" class="habit-checkbox">
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="journal-section">
+                <div class="section-header">
+                  <h2>Builder's Journal</h2>
+                  <a href="#" class="view-logs">View all logs</a>
+                </div>
+                <div class="journal-timeline"></div>
+              </div>
+            </div>
+          </main>
+
+          <main class="focus" style="display: none">
+            <div class="focus-main">
+              <div class="focus-timer">
+                <span class="timer-display">25:00</span>
+                <span class="timer-label">FOCUS PERIOD</span>
+              </div>
+              <p class="current-task-label">CURRENT TASK</p>
+              <h3 class="current-task-text">Refactoring Auth Module</h3>
+              <button class="focus-end-session-btn">End Session</button>
+              <div class="focus-main-footer">
+                <div class="session-streak">
+                  <span class="streak-dot completed"></span>
+                  <span class="streak-dot completed"></span>
+                  <span class="streak-dot"></span>
+                  <span class="streak-dot"></span>
+                </div>
+                <button class="focus-sounds-btn">Nature Sounds Active</button>
+              </div>
+            </div>
+
+            <div class="focus-queue">
+              <h3 class="queue-heading">QUEUE</h3>
+              <div class="queue-list">
+                <div class="queue-item">
+                  <!-- <span class="queue-tag">NEXT UP</span> -->
+                  <!-- <p class="queue-task-name">
+                    Prepare API Documentation for Team Sync
+                  </p>
+                  <span class="queue-duration">15 MINS</span> -->
+                  <!-- <button class="queue-delete-btn">Delete Task</button> -->
+                </div>
+              </div>
+              <button class="add-to-queue-btn">Add to Queue +</button>
+            </div>
+          </main>
         </div>
-
-        <button class="modal-cancel">Cancel</button>
       </div>
-    </div>
 
-    <div class="modal-overlay-2">
-      <div class="modal-card">
-        <h2 class="entry-heading">New Journal Entry</h2>
-        <input class="entry-title" type="text" placeholder="Title..." />
-        <textarea
-          class="entry-body"
-          placeholder="What's on your mind..."
-        ></textarea>
-        <div class="entry-actions">
-          <button class="entry-cancel-btn">Cancel</button>
-          <button class="entry-submit-btn">Save Entry</button>
+      <div class="modal-overlay">
+        <div class="modal-card">
+          <h2>What are you capturing?</h2>
+          <p>Select a format to preserve your flow state.</p>
+          <div class="modal-options">
+            <div class="option-card">
+              <div class="modal-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#065f46"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+              </div>
+              <div class="option-text">
+                <h3>Journal Entry</h3>
+                <p>Capture personal reflections, mood and daily observations.</p>
+              </div>
+            </div>
+
+            <div class="option-card">
+              <div class="modal-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#065f46"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <div class="option-text">
+                <h3>Technical Log</h3>
+                <p>
+                  Document coding progress, architecture notes or bugs squashed.
+                </p>
+              </div>
+            </div>
+
+            <div class="option-card">
+              <div class="modal-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#065f46"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  />
+                </svg>
+              </div>
+              <div class="option-text">
+                <h3>Vault Insight</h3>
+                <p>Save book highlights, mental models, or new connections.</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="modal-cancel">Cancel</button>
         </div>
       </div>
-    </div>
 
-    <div class="modal-overlay-3">
-      <div class="modal-card">
-        <h2>All Entries</h2>
-        <div class="logs-list"></div>
-        <button class="modal-cancel-3">Close</button>
-      </div>
-    </div>
-
-    <!-- Habit section -->
-
-    <div class="modal-overlay-4">
-      <div class="modal-card">
-        <h2>Add Habit</h2>
-        <input
-          type="text"
-          class="habit-name"
-          placeholder="Enter habit name..."
-        />
-        <input type="number" class="habit-goal" placeholder="Goal in days" />
-        <div class="color-options">
-          <div class="color-option" style="background: #059669"></div>
-          <div class="color-option" style="background: #f97316"></div>
-          <div class="color-option" style="background: #3b82f6"></div>
-          <div class="color-option" style="background: #8b5cf6"></div>
-        </div>
-        <div class="entry-actions">
-          <button class="habit-cancel-btn">Cancel</button>
-          <button class="habit-save-button">Save Habit</button>
+      <div class="modal-overlay-2">
+        <div class="modal-card">
+          <h2 class="entry-heading">New Journal Entry</h2>
+          <input class="entry-title" type="text" placeholder="Title..." />
+          <textarea
+            class="entry-body"
+            placeholder="What's on your mind..."
+          ></textarea>
+          <div class="entry-actions">
+            <button class="entry-cancel-btn">Cancel</button>
+            <button class="entry-submit-btn">Save Entry</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Focus Page -->
-
-    <div class="modal-overlay-5">
-      <div class="modal-card">
-        <h2>Add task</h2>
-        <input type="text" class="task-name" placeholder="Enter the task..." />
-        <input
-          type="number"
-          class="task-duration"
-          placeholder="Task duration in minutes"
-        />
-        <p class="null-entry-error"></p>
-
-        <button class="task-submit-btn">Add Task</button>
+      <div class="modal-overlay-3">
+        <div class="modal-card">
+          <h2>All Entries</h2>
+          <div class="logs-list"></div>
+          <button class="modal-cancel-3">Close</button>
+        </div>
       </div>
-    </div>
 
-    <script src="script.js"></script>
-  </body>
-</html>
+      <!-- Habit section -->
+
+      <div class="modal-overlay-4">
+        <div class="modal-card">
+          <h2>Add Habit</h2>
+          <input
+            type="text"
+            class="habit-name"
+            placeholder="Enter habit name..."
+          />
+          <input type="number" class="habit-goal" placeholder="Goal in days" />
+          <div class="color-options">
+            <div class="color-option" style="background: #059669"></div>
+            <div class="color-option" style="background: #f97316"></div>
+            <div class="color-option" style="background: #3b82f6"></div>
+            <div class="color-option" style="background: #8b5cf6"></div>
+          </div>
+          <div class="entry-actions">
+            <button class="habit-cancel-btn">Cancel</button>
+            <button class="habit-save-button">Save Habit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Focus Page -->
+
+      <div class="modal-overlay-5">
+        <div class="modal-card">
+          <h2>Add task</h2>
+          <input type="text" class="task-name" placeholder="Enter the task..." />
+          <input
+            type="number"
+            class="task-duration"
+            placeholder="Task duration in minutes"
+          />
+          <p class="null-entry-error"></p>
+
+          <button class="task-submit-btn">Add Task</button>
+        </div>
+      </div>
+
+      <script src="script.js"></script>
+    </body>
+  </html>

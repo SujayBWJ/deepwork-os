@@ -38,7 +38,7 @@ const entrySubmitBtn = document.querySelector(".entry-submit-btn");
 const titleInput = document.querySelector(".entry-title");
 const bodyInput = document.querySelector(".entry-body");
 const timeline = document.querySelector(".journal-timeline");
-const nullEntry = document.querySelector('.null-entry-error');
+const nullEntry = document.querySelector(".null-entry-error");
 optionCards.forEach(function (card) {
   card.addEventListener("click", function () {
     modalOverlay.classList.remove("active");
@@ -374,11 +374,11 @@ const taskInput = document.querySelector(".task-name");
 const taskDuration = document.querySelector(".task-duration");
 const queueList = document.querySelector(".queue-list");
 const addTaskBtn = document.querySelector(".task-submit-btn");
-const resumeFocusBtn = document.querySelector('.resume-btn');
+const resumeFocusBtn = document.querySelector(".resume-btn");
 
-resumeFocusBtn.addEventListener('click', function(){
+resumeFocusBtn.addEventListener("click", function () {
   showFocusPage();
-})
+});
 
 addQueueBtn.addEventListener("click", function () {
   modalOverlay5.classList.add("active");
@@ -405,10 +405,7 @@ addTaskBtn.addEventListener("click", function () {
   //   return;
   // }
 
-if(!validate(taskName,duration)) return;
-
-
-
+  if (!validate(taskName, duration)) return;
 
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.push(task);
@@ -422,38 +419,66 @@ if(!validate(taskName,duration)) return;
 
   newTask.classList.add("task-entry");
   newTask.innerHTML = `
-     
   <div class="queue-item">
-                <span class="queue-tag">NEXT UP</span>
-                <p class="queue-task-name">
-                  ${task.taskName}
-                </p>
-                <span class="queue-duration">${task.duration} MINS</span>
-              </div>
-    `;
+    <div class="queue-content">
+      <span class="queue-tag">NEXT UP</span>
+      <p class="queue-task-name">${task.taskName}</p>
+      <span class="queue-duration">${task.duration} MINS</span>
+    </div>
 
+    <button class="queue-delete-btn">Delete</button>
+  </div>
+`;
   queueList.appendChild(newTask);
+
+  const queueDeleteBtn = newTask.querySelector(".queue-delete-btn");
+  queueDeleteBtn.addEventListener("click", function () {
+    const confirmed = confirm("Delete this task?");
+    if (confirmed) {
+      const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      const allItems = queueList.querySelectorAll(".task-entry");
+      const index = Array.from(allItems).indexOf(newTask);
+      tasks.splice(index, 1);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      newTask.remove();
+    }
+  });
 });
 
 function loadTasks() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-  tasks.forEach(function (task) {
+  tasks.forEach(function (task, index) {
     const newTask = document.createElement("div");
 
     newTask.classList.add("task-entry");
     newTask.innerHTML = `
-     
-  <div class="queue-item">
-                <span class="queue-tag">NEXT UP</span>
-                <p class="queue-task-name">
-                  ${task.taskName}
-                </p>
-                <span class="queue-duration">${task.duration} MINS</span>
-              </div>
+      <div class="queue-item">
+        <div class="queue-content">
+          <span class="queue-tag">NEXT UP</span>
+          <p class="queue-task-name">${task.taskName}</p>
+          <span class="queue-duration">${task.duration} MINS</span>
+        </div>
+
+        <button class="queue-delete-btn">Delete</button>
+      </div>
     `;
 
     queueList.appendChild(newTask);
+
+    const deleteBtn = newTask.querySelector(".queue-delete-btn");
+
+    deleteBtn.addEventListener("click", function () {
+      const confirmed = confirm("Delete this task?");
+      if (!confirmed) return;
+
+      const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      tasks.splice(index, 1);
+
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+
+      newTask.remove();
+    });
   });
 }
 
@@ -474,11 +499,10 @@ function restorePage() {
   }
 }
 
-function validate(input1, input2){
-  console.log('validator called');
-  
-  if(input1 === "" || input2 === "")
-  {
+function validate(input1, input2) {
+  console.log("validator called");
+
+  if (input1 === "" || input2 === "") {
     nullEntry.textContent = "Please fill all the fields";
     return false;
   }
@@ -486,8 +510,7 @@ function validate(input1, input2){
   return true;
 }
 
-
-  function showFocusPage() {
+function showFocusPage() {
   dashboard.style.display = "none";
   focusPage.style.display = "flex";
 

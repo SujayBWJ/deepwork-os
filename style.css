@@ -454,8 +454,8 @@ body {
 }
 
 /* .journal-dot::after:hover{
-  background: #f97316;
-} */
+    background: #f97316;
+  } */
 
 .journal-entry:last-child .journal-dot::after {
   display: none;
@@ -1000,14 +1000,14 @@ body {
   letter-spacing: 0.1em;
   color: #9ca3af;
 }
-
-.queue-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 12px 0;
-  border-bottom: 1px solid #f3f4f6;
-}
+/* 
+  .queue-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+  } */
 
 .queue-tag {
   font-size: 10px;
@@ -1060,8 +1060,9 @@ body {
   display: flex;
 }
 
-.task-name, .task-duration{
-   width: 100%;
+.task-name,
+.task-duration {
+  width: 100%;
   padding: 12px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
@@ -1076,7 +1077,7 @@ body {
   border-color: #059669;
 }
 
-.task-submit-btn{
+.task-submit-btn {
   background: #111827;
   color: white;
   border: none;
@@ -1092,4 +1093,52 @@ body {
   color: red;
   font-size: 14px;
   margin-top: 8px;
+}
+
+/* .queue-delete-btn {
+    background: none;
+    border: 1px solid #57c785;
+    color: #ef4444;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 4px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  } */
+
+.queue-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.queue-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.queue-delete-btn {
+  background: #f8faf9;
+  border: 1px solid #e5e7eb;
+  color: #ef4444;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.queue-delete-btn:hover {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
 }
