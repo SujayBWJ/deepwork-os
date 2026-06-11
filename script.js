@@ -323,8 +323,9 @@ menuItems.forEach(function (item) {
 });
 
 // Focus Page JS
+const taskDuration = document.querySelector(".task-duration");
 const focusTimer = document.querySelector(".focus-timer");
-let totalSeconds = 25 * 60;
+let totalSeconds = (taskDuration.value) * 60;
 let timerInterval = null;
 let isRunning = false;
 let minutes = 0;
@@ -335,7 +336,7 @@ endSession.addEventListener("click", function () {
   clearInterval(timerInterval);
   isRunning = false;
 
-  totalSeconds = 25 * 60;
+  totalSeconds = taskDuration.value * 60;
 
   minutes = Math.floor(totalSeconds / 60);
   seconds = totalSeconds % 60;
@@ -371,7 +372,6 @@ focusTimer.addEventListener("click", function () {
 const modalOverlay5 = document.querySelector(".modal-overlay-5");
 const addQueueBtn = document.querySelector(".add-to-queue-btn");
 const taskInput = document.querySelector(".task-name");
-const taskDuration = document.querySelector(".task-duration");
 const queueList = document.querySelector(".queue-list");
 const addTaskBtn = document.querySelector(".task-submit-btn");
 const resumeFocusBtn = document.querySelector(".resume-btn");
