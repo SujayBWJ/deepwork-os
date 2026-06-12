@@ -325,7 +325,7 @@ menuItems.forEach(function (item) {
 // Focus Page JS
 const taskDuration = document.querySelector(".task-duration");
 const focusTimer = document.querySelector(".focus-timer");
-let totalSeconds = (taskDuration.value) * 60;
+let totalSeconds = 25 * 60;
 let timerInterval = null;
 let isRunning = false;
 let minutes = 0;
@@ -336,7 +336,7 @@ endSession.addEventListener("click", function () {
   clearInterval(timerInterval);
   isRunning = false;
 
-  totalSeconds = taskDuration.value * 60;
+  totalSeconds = 25 * 60;
 
   minutes = Math.floor(totalSeconds / 60);
   seconds = totalSeconds % 60;
