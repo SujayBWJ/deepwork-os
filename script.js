@@ -323,7 +323,7 @@ menuItems.forEach(function (item) {
 });
 
 // Focus Page JS
-const taskDuration = document.querySelector(".task-duration");
+const taskSessions = document.querySelector(".task-sessions");
 const focusTimer = document.querySelector(".focus-timer");
 let totalSeconds = 25 * 60;
 let timerInterval = null;
@@ -342,6 +342,7 @@ endSession.addEventListener("click", function () {
   seconds = totalSeconds % 60;
   let display = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
   document.querySelector(".timer-display").textContent = display;
+  document.querySelector(".current-task-text").textContent = "No Active Task";
 });
 
 function tick() {
@@ -393,11 +394,11 @@ modalOverlay5.addEventListener("click", function (e) {
 
 addTaskBtn.addEventListener("click", function () {
   const taskName = taskInput.value;
-  const duration = taskDuration.value;
+  const sessions = taskSessions.value;
 
   const task = {
     taskName: taskName,
-    duration: duration,
+    sessions: sessions,
   };
 
   // if(taskName == "" || duration === ""){
@@ -405,7 +406,7 @@ addTaskBtn.addEventListener("click", function () {
   //   return;
   // }
 
-  if (!validate(taskName, duration)) return;
+  if (!validate(taskName, sessions)) return;
 
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.push(task);
@@ -413,7 +414,7 @@ addTaskBtn.addEventListener("click", function () {
 
   modalOverlay5.classList.remove("active");
   taskInput.value = "";
-  taskDuration.value = "";
+  taskSessions.value = "";
 
   const newTask = document.createElement("div");
 
@@ -423,7 +424,7 @@ addTaskBtn.addEventListener("click", function () {
     <div class="queue-content">
       <span class="queue-tag">NEXT UP</span>
       <p class="queue-task-name">${task.taskName}</p>
-      <span class="queue-duration">${task.duration} MINS</span>
+      <span class="queue-sessions">${task.sessions}</span>
     </div>
 
     <button class="queue-delete-btn">Delete</button>
@@ -457,12 +458,22 @@ function loadTasks() {
         <div class="queue-content">
           <span class="queue-tag">NEXT UP</span>
           <p class="queue-task-name">${task.taskName}</p>
-          <span class="queue-duration">${task.duration} MINS</span>
+          <span class="queue-sessions">${task.sessions} MINS</span>
         </div>
 
-        <button class="queue-delete-btn">Delete</button>
-      </div>
+    <div class="queue-actions">
+      <button class="queue-play-btn">Run</button>
+      <button class="queue-delete-btn">Delete</button>
+    </div>
+  </div>      </div>
     `;
+
+    const runBtn = newTask.querySelector(".queue-play-btn");
+
+    runBtn.addEventListener("click", function () {
+      console.log("Running:", task.taskName);
+      runTask(task.taskName)
+    });
 
     queueList.appendChild(newTask);
 
@@ -524,6 +535,32 @@ function showFocusPage() {
     }
   });
 }
+
+function runTask(taskName) {
+  clearInterval(timerInterval);
+
+  totalSeconds = 25 * 60;
+  isRunning = false;
+
+  document.querySelector(".current-task-text").textContent = taskName;
+  document.querySelector(".timer-display").textContent = "25:00";
+}
+
+// const startBtn = document.querySelector(".focus-start-btn");
+
+// startBtn.addEventListener("click", function () {
+//   if (isRunning) return;
+
+//   timerInterval = setInterval(tick, 1000);
+//   isRunning = true;
+// });
+
+// const pauseBtn = document.querySelector(".focus-pause-btn");
+
+// pauseBtn.addEventListener("click", function () {
+//   clearInterval(timerInterval);
+//   isRunning = false;
+// });
 
 loadEntries();
 loadHabits();

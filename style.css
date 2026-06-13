@@ -1022,7 +1022,7 @@ body {
   color: #111827;
 }
 
-.queue-duration {
+.queue-sessions {
   font-size: 11px;
   color: #9ca3af;
 }
@@ -1061,7 +1061,7 @@ body {
 }
 
 .task-name,
-.task-duration {
+.task-sessions {
   width: 100%;
   padding: 12px;
   border: 1px solid #e5e7eb;
@@ -1141,4 +1141,21 @@ body {
   background: #ef4444;
   color: white;
   border-color: #ef4444;
+}
+
+.queue-play-btn {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #111827;
+  transition: 0.2s all ease;
+}
+
+.queue-play-btn:hover{
+    background: #f3f4f6;
+
 }
