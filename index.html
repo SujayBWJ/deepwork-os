@@ -306,20 +306,53 @@
     <!-- Builder's Journal -->
     <main class="builder-journal" style="display: none">
       <div class="builder-main">
+        <div class="journal-date-nav">
+          <button class="prev-date-btn">←</button>
+          <span class="journal-date">October 24, 2023</span>
+          <button class="next-date-btn">→</button>
+        </div>
+        <div class="journal-actions">
+          <button class="new-entry-btn">New Entry</button>
+        </div>
         <div class="builder-row">
           <div class="tech-section">
             <div class="tech-header">
-              <h1>Technical Log</h1>
-              <a href="#" class="add-log">Add Log</a>
+              <div class="tech-header">
+                <h1>Technical Log</h1>
+
+                <div class="tech-actions">
+                  <span class="commit-count">8 COMMITS TODAY</span>
+                  <button class="add-log-btn">Add Log</button>
+                </div>
+              </div>
             </div>
-            <div class="builder-timeline"></div>
+            <div class="tech-content">
+              <div class="builder-timeline"></div>
+            </div>
           </div>
 
           <div class="reflection-section">
-            <div class="reflection-header">
-              <h1>Personal Reflection</h1>
+            <div class="reflection-section">
+              <div class="reflection-header">
+                <h1>Personal Reflection</h1>
+              </div>
+
+              <p class="reflection-quote">
+                "The quality of your life is the quality of your focus."
+              </p>
+
+              <div class="reflection-content">
+                <p class="reflection-paragraph"></p>
+              </div>
+
+              <div class="reflection-note">
+                <p></p>
+              </div>
+
+              <div class="reflection-footer">
+                <span class="reflection-stat"></span>
+              </div>
             </div>
-            <span class="reflection-quote">"The quality of your life is the quality of your focus."</span>
           </div>
         </div>
       </div>
