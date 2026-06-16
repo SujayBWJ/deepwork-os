@@ -1155,7 +1155,27 @@ body {
   transition: 0.2s all ease;
 }
 
-.queue-play-btn:hover{
-    background: #f3f4f6;
+.queue-play-btn:hover {
+  background: #f3f4f6;
+}
 
+/* Builder's Journal Page CSS */
+.builder-journal {
+  display: flex;
+  flex: 1;
+  background: #f0f7f4;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.builder-main {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f7f4;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 60px;
 }

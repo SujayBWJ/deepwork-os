@@ -562,6 +562,33 @@ function runTask(taskName) {
 //   isRunning = false;
 // });
 
+
+// Builder's Journal
+// const dashboard = document.querySelector(".dashboard");
+// const focusPage = document.querySelector(".focus");
+const builderPage = document.querySelector('.builder-journal');
+
+menuItems.forEach(function (item) {
+  item.addEventListener("click", function () {
+    menuItems.forEach(function (i) {
+      i.classList.remove("active");
+    });
+    item.classList.add("active");
+
+    const label = item.querySelector("span").textContent;
+
+    localStorage.setItem("activePage", label);
+
+    if (label === "Builder's Journal") {
+      dashboard.style.display = "none";
+      builderPage.style.display = "flex";
+    } else {
+      dashboard.style.display = "block";
+      builderPage.style.display = "none";
+    }
+  });
+});
+
 loadEntries();
 loadHabits();
 loadTasks();
