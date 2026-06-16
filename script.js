@@ -314,9 +314,11 @@ menuItems.forEach(function (item) {
 
     if (label === "Focus Mode") {
       dashboard.style.display = "none";
+      builderPage.style.display = "none";
       focusPage.style.display = "flex";
     } else {
       dashboard.style.display = "block";
+      builderPage.style.display = "none";
       focusPage.style.display = "none";
     }
   });
@@ -472,7 +474,7 @@ function loadTasks() {
 
     runBtn.addEventListener("click", function () {
       console.log("Running:", task.taskName);
-      runTask(task.taskName)
+      runTask(task.taskName);
     });
 
     queueList.appendChild(newTask);
@@ -562,11 +564,10 @@ function runTask(taskName) {
 //   isRunning = false;
 // });
 
-
 // Builder's Journal
 // const dashboard = document.querySelector(".dashboard");
 // const focusPage = document.querySelector(".focus");
-const builderPage = document.querySelector('.builder-journal');
+const builderPage = document.querySelector(".builder-journal");
 
 menuItems.forEach(function (item) {
   item.addEventListener("click", function () {
@@ -581,10 +582,8 @@ menuItems.forEach(function (item) {
 
     if (label === "Builder's Journal") {
       dashboard.style.display = "none";
+      focusPage.style.display = "none";
       builderPage.style.display = "flex";
-    } else {
-      dashboard.style.display = "block";
-      builderPage.style.display = "none";
     }
   });
 });
