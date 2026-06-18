@@ -347,6 +347,7 @@ endSession.addEventListener("click", function () {
   document.querySelector(".current-task-text").textContent = "No Active Task";
 });
 
+// This function is responsible for dynamic ticking of the timer
 function tick() {
   totalSeconds--;
   minutes = Math.floor(totalSeconds / 60);
@@ -394,6 +395,7 @@ modalOverlay5.addEventListener("click", function (e) {
   }
 });
 
+// This function defines the actions that need to be performed to add a task to the queue
 addTaskBtn.addEventListener("click", function () {
   const taskName = taskInput.value;
   const sessions = taskSessions.value;
@@ -410,6 +412,8 @@ addTaskBtn.addEventListener("click", function () {
 
   if (!validate(taskName, sessions)) return;
 
+
+  // Take the task, push it into tasks array then remove the dialog box for adding the task
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.push(task);
   localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -418,8 +422,11 @@ addTaskBtn.addEventListener("click", function () {
   taskInput.value = "";
   taskSessions.value = "";
 
+
+
   const newTask = document.createElement("div");
 
+  // This innerHTML is used to display the changes onto the page
   newTask.classList.add("task-entry");
   newTask.innerHTML = `
   <div class="queue-item">
@@ -434,10 +441,13 @@ addTaskBtn.addEventListener("click", function () {
 `;
   queueList.appendChild(newTask);
 
+  // The below block of code is used to delete the task from the queue upon clicking the delete button
   const queueDeleteBtn = newTask.querySelector(".queue-delete-btn");
   queueDeleteBtn.addEventListener("click", function () {
-    const confirmed = confirm("Delete this task?");
+    const confirmed = confirm("Delete this task?"); // Returns true if clicked yes, else returns false
     if (confirmed) {
+
+      // Take the tasks array, put all the task entries into allItems object, then splice(remove) the selected item from using its index value, then store the updates tasks array back into the localStorage
       const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
       const allItems = queueList.querySelectorAll(".task-entry");
       const index = Array.from(allItems).indexOf(newTask);
@@ -448,6 +458,7 @@ addTaskBtn.addEventListener("click", function () {
   });
 });
 
+// This function is responsible for loading the tasks to the task list and loading the task to the main window when clicked on the run button
 function loadTasks() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -512,6 +523,7 @@ function restorePage() {
   }
 }
 
+// This checks if all the fields in the dialog boxes are filled, alerts the user if not
 function validate(input1, input2) {
   console.log("validator called");
 
@@ -522,6 +534,7 @@ function validate(input1, input2) {
   nullEntry.textContent = "";
   return true;
 }
+
 
 function showFocusPage() {
   dashboard.style.display = "none";
@@ -538,6 +551,7 @@ function showFocusPage() {
   });
 }
 
+// This function is triggered when user clicks on the run button, it adds the task name below the timer and sets the timer to 25:00 mins
 function runTask(taskName) {
   clearInterval(timerInterval);
 
@@ -569,6 +583,7 @@ function runTask(taskName) {
 // const focusPage = document.querySelector(".focus");
 const builderPage = document.querySelector(".builder-journal");
 
+// The below block of code checks if the clicked menu item is Builder's Journal; If yes, then it changes the page, removes activePage from current one and adds activePage to Builder's Journal
 menuItems.forEach(function (item) {
   item.addEventListener("click", function () {
     menuItems.forEach(function (i) {
@@ -581,9 +596,9 @@ menuItems.forEach(function (item) {
     localStorage.setItem("activePage", label);
 
     if (label === "Builder's Journal") {
-      dashboard.style.display = "none";
+      dashboard.style.display = "none"; // This makes the page invisible
       focusPage.style.display = "none";
-      builderPage.style.display = "flex";
+      builderPage.style.display = "flex"; // This makes the page visible
     }
   });
 });
