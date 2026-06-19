@@ -314,11 +314,9 @@ menuItems.forEach(function (item) {
 
     if (label === "Focus Mode") {
       dashboard.style.display = "none";
-      builderPage.style.display = "none";
       focusPage.style.display = "flex";
     } else {
       dashboard.style.display = "block";
-      builderPage.style.display = "none";
       focusPage.style.display = "none";
     }
   });
@@ -581,27 +579,27 @@ function runTask(taskName) {
 // Builder's Journal
 // const dashboard = document.querySelector(".dashboard");
 // const focusPage = document.querySelector(".focus");
-const builderPage = document.querySelector(".builder-journal");
+// const builderPage = document.querySelector(".builder-journal");
 
 // The below block of code checks if the clicked menu item is Builder's Journal; If yes, then it changes the page, removes activePage from current one and adds activePage to Builder's Journal
-menuItems.forEach(function (item) {
-  item.addEventListener("click", function () {
-    menuItems.forEach(function (i) {
-      i.classList.remove("active");
-    });
-    item.classList.add("active");
+// menuItems.forEach(function (item) {
+//   item.addEventListener("click", function () {
+//     menuItems.forEach(function (i) {
+//       i.classList.remove("active");
+//     });
+//     item.classList.add("active");
 
-    const label = item.querySelector("span").textContent;
+//     const label = item.querySelector("span").textContent;
 
-    localStorage.setItem("activePage", label);
+//     localStorage.setItem("activePage", label);
 
-    if (label === "Builder's Journal") {
-      dashboard.style.display = "none"; // This makes the page invisible
-      focusPage.style.display = "none";
-      builderPage.style.display = "flex"; // This makes the page visible
-    }
-  });
-});
+//     if (label === "Builder's Journal") {
+//       dashboard.style.display = "none"; // This makes the page invisible
+//       focusPage.style.display = "none";
+//       builderPage.style.display = "flex"; // This makes the page visible
+//     }
+//   });
+// });
 
 loadEntries();
 loadHabits();
