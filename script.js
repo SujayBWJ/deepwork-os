@@ -410,7 +410,6 @@ addTaskBtn.addEventListener("click", function () {
 
   if (!validate(taskName, sessions)) return;
 
-
   // Take the task, push it into tasks array then remove the dialog box for adding the task
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.push(task);
@@ -419,8 +418,6 @@ addTaskBtn.addEventListener("click", function () {
   modalOverlay5.classList.remove("active");
   taskInput.value = "";
   taskSessions.value = "";
-
-
 
   const newTask = document.createElement("div");
 
@@ -444,7 +441,6 @@ addTaskBtn.addEventListener("click", function () {
   queueDeleteBtn.addEventListener("click", function () {
     const confirmed = confirm("Delete this task?"); // Returns true if clicked yes, else returns false
     if (confirmed) {
-
       // Take the tasks array, put all the task entries into allItems object, then splice(remove) the selected item from using its index value, then store the updates tasks array back into the localStorage
       const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
       const allItems = queueList.querySelectorAll(".task-entry");
@@ -532,7 +528,6 @@ function validate(input1, input2) {
   nullEntry.textContent = "";
   return true;
 }
-
 
 function showFocusPage() {
   dashboard.style.display = "none";
